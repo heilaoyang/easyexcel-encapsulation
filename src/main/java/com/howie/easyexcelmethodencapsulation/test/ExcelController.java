@@ -31,11 +31,11 @@ public class ExcelController {
     }
 
     /**
-     * 读取 Excel（指定某个 sheet）
+     * 读取 Excel（指定某个 sheet）   headlineNum是指定excel的head头部行高度去除掉后才能直接读数据
      */
     @RequestMapping(value = "readExcel", method = RequestMethod.POST)
-    public Object readExcel(MultipartFile excel, int sheetNo,
-                            @RequestParam(defaultValue = "1") int headLineNum) {
+    public Object readExcel(MultipartFile excel, @RequestParam(defaultValue = "1")int sheetNo,
+                            @RequestParam(defaultValue = "2") int headLineNum) {
         return ExcelUtil.readExcel(excel, new ImportInfo(), sheetNo, headLineNum);
     }
 
